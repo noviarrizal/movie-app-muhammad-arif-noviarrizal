@@ -37,6 +37,8 @@ const initialState = {
 	movies: {},
 	series: {},
 	selectedMovieOrSeries: {},
+	pageMovies: {},
+	pageSeries: {},
 };
 
 const movieSlice = createSlice({
@@ -52,18 +54,15 @@ const movieSlice = createSlice({
 			console.log("Pending");
 		},
 		[fetchAsyncMovies.fulfilled]: (state, { payload }) => {
-			console.log("Fetched Successfully!");
 			return { ...state, movies: payload };
 		},
 		[fetchAsyncMovies.rejected]: () => {
 			console.log("Rejected!");
 		},
 		[fetchAsyncSeries.fulfilled]: (state, { payload }) => {
-			console.log("Fetched Successfully!");
 			return { ...state, series: payload };
 		},
 		[fetchAsyncMovieOrSeriesDetail.fulfilled]: (state, { payload }) => {
-			console.log("Fetched Successfully!");
 			return { ...state, selectedMovieOrSeries: payload };
 		},
 	},

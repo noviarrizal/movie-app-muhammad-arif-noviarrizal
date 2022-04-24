@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { getAllMovies, getAllSeries } from "../../features/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
@@ -9,10 +9,8 @@ import "./MovieList.scss";
 const MovieList = () => {
 	const movies = useSelector(getAllMovies);
 	const series = useSelector(getAllSeries);
-	// console.log(movies);
 	let renderMovies,
 		renderSeries = "";
-
 	renderMovies =
 		movies.Response === "True" ? (
 			movies.Search.map((movie, index) => (
